@@ -24,8 +24,17 @@ export const getArticlesByTopicId = (topic) => {
 
 export const getArticleById = (article_id) => {
   return connectNewsApi.get(`/articles/${article_id}`).then((response) => {
-    console.log(response.data.articles[0]);
     return response.data.articles;
   });
 };
+
+export const getCommentByArticleId = (article_id) => {
+  return connectNewsApi
+    .get(`/articles/${article_id}/comments`)
+    .then((response) => {
+      return response.data.comments;
+    });
+};
+
+
 
