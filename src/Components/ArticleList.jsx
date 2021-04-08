@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getAllArticles } from "../utils";
+import { getAllArticles, getSortedArticles } from "../utils";
 import ArticleCard from "./ArticleCard";
 
 
@@ -23,11 +23,25 @@ export class ArticleList extends Component {
       });
     }
   }
+
+  sortArticles = (event) =>{
+    const query = event.target.value
+    getSortedArticles(query).then((articles) => {
+      this.setState({ articles });
+    });
+  }
+
+
+
   render() {
     const { articles } = this.state;
 
     return (
       <section>
+        <h4>Sorty by:</h4>
+        <button value="created_at" onClick={this.sortArticles}> Date </button>
+        <button value="comment_count" onClick={this.sortArticles}> Comments </button>
+        <button value="votes"onClick={this.sortArticles}> Votes </button>
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
         })}

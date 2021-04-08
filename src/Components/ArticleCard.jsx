@@ -29,7 +29,7 @@ export default function ArticleCard(props) {
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-        {article.created_at}
+        Date: {article.created_at}
         </Typography>
         <Typography variant="h6" component="h2">
         <Link to={`/articles/${article.article_id}`}>
