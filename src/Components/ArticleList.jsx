@@ -31,11 +31,8 @@ export class ArticleList extends Component {
     });
   }
 
-
-
   render() {
     const { articles } = this.state;
-
     return (
       <section>
         <h4>Sorty by:</h4>

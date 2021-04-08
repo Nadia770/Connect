@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { Votes } from './Votes';
 
 const useStyles = makeStyles({
   root: {
@@ -43,6 +44,9 @@ export default function ArticleCard(props) {
         <Link to={`/articles/${article.article_id}/comments`}>
          {article.comment_count} comments
          </Link>
+        </Typography>
+        <Typography variant="body2" component="p">
+         <Votes votes={article.votes} id={article.article_id} item="articles"/>
           <br />
         </Typography>
       </CardContent>
