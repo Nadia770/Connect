@@ -16,7 +16,7 @@ function App() {
       <ArticleList path="/"/>
       <ArticleByTopic path="/:topic_id/articles"/>
       <SingleArticle path="/articles/:article_id"/>
-      <Comments path="/articles/:article_id/comments"/>
+      {/* <Comments path="/articles/:article_id/comments"/> */}
       </Router>
     </div>
   );
