@@ -16,9 +16,16 @@ export const getTopics = () => {
   });
 };
 
-export const getArticlesByTopicId = (topic)=>{
+export const getArticlesByTopicId = (topic) => {
   return connectNewsApi.get(`/articles?topic=${topic}`).then((response) => {
     return response.data.articles;
   });
-}
+};
+
+export const getArticleById = (article_id) => {
+  return connectNewsApi.get(`/articles/${article_id}`).then((response) => {
+    console.log(response.data.articles[0]);
+    return response.data.articles;
+  });
+};
 

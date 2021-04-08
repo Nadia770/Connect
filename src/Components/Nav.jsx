@@ -17,7 +17,7 @@ export class Nav extends Component {
   render() {
     const { topics, isLoading } = this.state;
     return (
-      <div>
+      <div className="topnav">
         {isLoading ? (
           <h1>Page is loading</h1>
         ) : (

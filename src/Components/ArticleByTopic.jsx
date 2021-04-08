@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import { getArticlesByTopicId } from "../utils";
+import ArticleCard from "./ArticleCard";
 
 export class ArticleByTopic extends Component {
   state = {
@@ -9,7 +11,6 @@ export class ArticleByTopic extends Component {
 
   componentDidMount() {
     const { topic_id } = this.props;
-    console.log(topic_id)
     getArticlesByTopicId(topic_id).then((articles) => {
       this.setState({articles, isLoading:false});
     });
@@ -30,7 +31,7 @@ export class ArticleByTopic extends Component {
     return (
       <div>
       {isLoading? <p>Loading</p>: articles.map((article) => {
-          return <li>{article.title}</li>;
+          return <ArticleCard article={article} key={article.article_id} />;
         })} 
       </div>
     );

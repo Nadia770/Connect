@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import { getAllArticles } from "../utils";
+import ArticleCard from "./ArticleCard";
+
 
 export class ArticleList extends Component {
   state = {
     articles: [],
-    
   };
 
   componentDidMount = () => {
-   const {topic_id} = this.props
-   getAllArticles(topic_id).then((articles) => {
-      this.setState({ articles});
+    const { topic_id } = this.props;
+    getAllArticles(topic_id).then((articles) => {
+      this.setState({ articles });
     });
   };
 
-  componentDidUpdate(previousProp){
-    const {topic_id}=this.props
-    if(topic_id !== previousProp.topics){
+  componentDidUpdate(previousProp) {
+    const { topic_id } = this.props;
+    if (topic_id !== previousProp.topics) {
       getAllArticles(topic_id).then((articles) => {
         this.setState({ articles });
       });
@@ -26,16 +27,12 @@ export class ArticleList extends Component {
     const { articles } = this.state;
 
     return (
-      <ol>
+      <section>
         {articles.map((article) => {
-          return (
-            <div>
-              <li>{article.title}</li>
-              <h5>posted in by {article.author}</h5>
-            </div>
-          );
+          return <ArticleCard article={article} key={article.article_id} />;
         })}
-      </ol>
+        {" "}
+      </section>
     );
   }
 }
