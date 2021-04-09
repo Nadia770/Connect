@@ -21,7 +21,7 @@ export class PostComment extends Component {
   };
   render() {
     return (
-      <form onSumbit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="comment">
           <textarea
             value={this.state.comment}

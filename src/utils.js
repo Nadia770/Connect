@@ -45,15 +45,23 @@ export const getSortedArticles = (property) => {
 export const postCommentByArticleId = (article_id, comment) => {
   return connectNewsApi
     .post(`/articles/${article_id}/comments`, {
-      username: "butter_bridge",
+      username: "jessjelly",
       body: comment,
     })
     .then((response) => {
-      return response.data;
+      return response.data.comments[0];
+    })
+    .catch((err) => {
+      console.dir(err);
     });
 };
 
+export const deleteCommentById = (comment_id) => {
+  return connectNewsApi.delete(`/comments/${comment_id}`) 
+};
 
-export const patchVotes = (article_id, change, endpoint)=>{
-  return connectNewsApi.patch(`${endpoint/article_id}`, { inc_votes: change})
-}
+export const patchVotes = (article_id, change, endpoint) => {
+  return connectNewsApi.patch(`${endpoint / article_id}`, {
+    inc_votes: change,
+  });
+};

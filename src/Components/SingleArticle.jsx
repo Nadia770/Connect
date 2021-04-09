@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { getArticleById } from "../utils";
-import Comments from "./Comments";
-import { PostComment } from "./PostComment";
+import { CommentsForArticle } from "./CommentsForArticle";
 import { Votes } from "./Votes";
 
 export class SingleArticle extends Component {
@@ -13,7 +12,7 @@ export class SingleArticle extends Component {
   componentDidMount = () => {
     const { article_id } = this.props;
     getArticleById(article_id).then((articleArray) => {
-      const article = articleArray[0]
+      const article = articleArray[0];
       this.setState({ article, isLoading: false });
     });
   };
@@ -27,6 +26,7 @@ export class SingleArticle extends Component {
     }
   }
 
+
   render() {
     const { article, isLoading } = this.state;
     return (
@@ -34,14 +34,18 @@ export class SingleArticle extends Component {
         {isLoading ? (
           <h1>Page is loading</h1>
         ) : (
-           <section> 
-             <p2>Date: {article.created_at}</p2>
-             <h3>{article.title}</h3>
-             <p2>{article.body}</p2>
-             <p2>Posted by: {article.author}</p2>
-             <Votes votes={article.votes} id={article.article_id} item="articles"/>
-             <Comments article_id={article.article_id} />
-           </section>
+          <section>
+            <h3>Date: {article.created_at}</h3>
+            <h3>{article.title}</h3>
+            <h4>{article.body}</h4>
+            <h4>Posted by: {article.author}</h4>
+            <Votes
+              votes={article.votes}
+              id={article.article_id}
+              item="articles"
+            />
+            <CommentsForArticle article_id={article.article_id} />
+          </section>
         )}
       </div>
     );

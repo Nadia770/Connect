@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { Votes } from './Votes';
 
+
 const useStyles = makeStyles({
   root: {
     // minWidth: 100,
@@ -23,7 +24,8 @@ const useStyles = makeStyles({
 
 export default function CommentCard(props) {
   const classes = useStyles();
-  const { comment } = props;
+  const { comment, deleteComment } = props;
+
 
   return (
     <Card className={classes.root}>
@@ -44,10 +46,8 @@ export default function CommentCard(props) {
         <Typography variant="body2" component="p">
           {comment.body}
         </Typography>
-        <Typography variant="body2" component="p">
           <Votes votes={comment.votes} id={comment.comment_id} endpoint="comments" />
-          <br />
-        </Typography>
+          <button onClick={()=>{deleteComment(comment.comment_id)}}>delete</button>
       </CardContent>
     </Card>
   );

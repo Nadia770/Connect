@@ -36,9 +36,9 @@ export class ArticleList extends Component {
     return (
       <section>
         <h4>Sorty by:</h4>
-        <button value="created_at" onClick={this.sortArticles}> Date </button>
-        <button value="comment_count" onClick={this.sortArticles}> Comments </button>
-        <button value="votes"onClick={this.sortArticles}> Votes </button>
+        <button value="created_at" onClick={this.sortArticles}> New </button>
+        <button value="comment_count" onClick={this.sortArticles}> Popular </button>
+        <button value="votes"onClick={this.sortArticles}> Top </button>
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
         })}

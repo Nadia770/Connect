@@ -26,7 +26,7 @@ export class Votes extends Component {
         >
           +
         </button>
-        <p>{votes + this.state.updateVotes}</p>
+        <p> Votes: {votes + this.state.updateVotes}</p>
         <button
           onClick={() => {
             this.updateVotes(id, -1, endpoint);

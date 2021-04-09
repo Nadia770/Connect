@@ -5,7 +5,6 @@ import {Router} from '@reach/router'
 import {ArticleList} from './Components/ArticleList' 
 import { ArticleByTopic } from "./Components/ArticleByTopic";
 import {SingleArticle} from "./Components/SingleArticle"
-import {Comments} from "./Components/Comments"
 
 function App() {
   return (

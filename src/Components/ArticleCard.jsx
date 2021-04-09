@@ -45,10 +45,9 @@ export default function ArticleCard(props) {
          {article.comment_count} comments
          </Link>
         </Typography>
-        <Typography variant="body2" component="p">
+
          <Votes votes={article.votes} id={article.article_id} item="articles"/>
-          <br />
-        </Typography>
+   
       </CardContent>
     </Card>
   );
