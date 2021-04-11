@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { postCommentByArticleId } from "../utils";
+import { postCommentByArticleId } from "../api";
 
 export class PostComment extends Component {
   state = {
@@ -26,6 +26,7 @@ export class PostComment extends Component {
           <textarea
             value={this.state.comment}
             onChange={this.handleChange}
+            placeholder="Write a comment jessjelly...."
           ></textarea>
         </label>
         <button>Submit</button>

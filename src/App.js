@@ -1,10 +1,12 @@
 import "./App.css";
 import Header from "./Components/Header";
-import { Nav } from "./Components/Nav";
+import { Nav } from "./Components/Nav1";
 import {Router} from '@reach/router'
 import {ArticleList} from './Components/ArticleList' 
 import { ArticleByTopic } from "./Components/ArticleByTopic";
 import {SingleArticle} from "./Components/SingleArticle"
+import { CommentsForArticle } from "./Components/CommentsForArticle";
+
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
       <ArticleList path="/"/>
       <ArticleByTopic path="/:topic_id/articles"/>
       <SingleArticle path="/articles/:article_id"/>
-      {/* <Comments path="/articles/:article_id/comments"/> */}
+      <CommentsForArticle path="/articles/:article_id/comments"/>
       </Router>
     </div>
   );

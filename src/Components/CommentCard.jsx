@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { Votes } from "./Votes";
 
+
 const useStyles = makeStyles({
   root: {
     // minWidth: 100,
@@ -33,7 +34,7 @@ export default function CommentCard(props) {
           color="textSecondary"
           gutterBottom
         >
-          Date: {comment.created_at}
+          Date: {(new Date(comment.created_at)).toDateString()}
         </Typography>
         <Typography variant="h6" component="h2">
           {comment.title}
@@ -45,7 +46,7 @@ export default function CommentCard(props) {
           {comment.body}
         </Typography>
 
-        {comment.author == "jessjelly" ? (
+        {comment.author === "jessjelly" ? (
           <button
             onClick={() => {
               deleteComment(comment.comment_id);

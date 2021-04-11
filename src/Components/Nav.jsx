@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import { getTopics } from "../utils";
+import { getTopics } from "../api";
 
 export class Nav extends Component {
   state = {

@@ -61,7 +61,11 @@ export const deleteCommentById = (comment_id) => {
 };
 
 export const patchVotes = (article_id, change, endpoint) => {
-  return connectNewsApi.patch(`${endpoint / article_id}`, {
+  return connectNewsApi.patch(`/${endpoint/article_id}`, {
     inc_votes: change,
+  })
+  .catch((err) => {
+    console.dir(err);
   });
 };
+

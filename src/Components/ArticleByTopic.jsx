@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 
-import { getArticlesByTopicId } from "../utils";
+import { getArticlesByTopicId } from "../api";
 import ArticleCard from "./ArticleCard";
 
 export class ArticleByTopic extends Component {
   state = {
     articles: [],
-    isLoading: true
+    isLoading: true,
   };
 
   componentDidMount() {
     const { topic_id } = this.props;
     getArticlesByTopicId(topic_id).then((articles) => {
       this.setState({articles, isLoading:false});
-    });
+    })
   }
 
   componentDidUpdate(previousProp){
@@ -32,7 +32,7 @@ export class ArticleByTopic extends Component {
       <div>
       {isLoading? <p>Loading</p>: articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
-        })} 
+        }) } 
       </div>
     );
   }

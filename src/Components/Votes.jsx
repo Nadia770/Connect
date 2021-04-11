@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { patchVotes } from "../utils";
+import { patchVotes } from "../api";
 
 export class Votes extends Component {
   state = {
@@ -29,7 +29,7 @@ export class Votes extends Component {
         <p> Votes: {votes + this.state.updateVotes}</p>
         <button
           onClick={() => {
-            this.updateVotes(id, -1, endpoint);
+            this.updateVotes(this.props.id, -1, this.props.endpoint)
           }}
         >
           -

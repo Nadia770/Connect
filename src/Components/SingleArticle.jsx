@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { getArticleById } from "../utils";
+import { getArticleById } from "../api";
 import { CommentsForArticle } from "./CommentsForArticle";
+import DisplayErrors from "./DisplayErrors";
 import { Votes } from "./Votes";
+
 
 export class SingleArticle extends Component {
   state = {
     article: [],
     isLoading: true,
+    error : null
   };
 
   componentDidMount = () => {
@@ -14,7 +17,10 @@ export class SingleArticle extends Component {
     getArticleById(article_id).then((articleArray) => {
       const article = articleArray[0];
       this.setState({ article, isLoading: false });
-    });
+    })
+    .catch(error=>{
+       this.setState({error, isLoading: false})
+    })
   };
 
   componentDidUpdate(previousProp) {
@@ -28,21 +34,21 @@ export class SingleArticle extends Component {
 
 
   render() {
-    const { article, isLoading } = this.state;
+    const { article, isLoading, error } = this.state;
     return (
       <div>
         {isLoading ? (
           <h1>Page is loading</h1>
-        ) : (
+        ) : error? <DisplayErrors status={error.response.status} msg={error.response.data.msg}/> : (
           <section>
-            <h3>Date: {article.created_at}</h3>
+            <h3>Date: {(new Date(article.created_at)).toDateString()}</h3>
             <h3>{article.title}</h3>
             <h4>{article.body}</h4>
             <h4>Posted by: {article.author}</h4>
             <Votes
               votes={article.votes}
               id={article.article_id}
-              item="articles"
+              endpoint="articles"
             />
             <CommentsForArticle article_id={article.article_id} />
           </section>

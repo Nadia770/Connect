@@ -30,7 +30,7 @@ export default function ArticleCard(props) {
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-        Date: {article.created_at}
+        Date: {(new Date (article.created_at)).toDateString()}
         </Typography>
         <Typography variant="h6" component="h2">
         <Link to={`/articles/${article.article_id}`}>
@@ -38,28 +38,18 @@ export default function ArticleCard(props) {
         </Link>
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          posted in {article.topic} by {article.author}
+
         </Typography>
         <Typography variant="body2" component="p">
-        <Link to={`/articles/${article.article_id}/comments`}>
+        <Link to={`/articles/${article.article_id}`}>
          {article.comment_count} comments
          </Link>
         </Typography>
 
-         <Votes votes={article.votes} id={article.article_id} item="articles"/>
+         <Votes votes={article.votes} id={article.article_id} endpoint="articles"/>
    
       </CardContent>
     </Card>
   );
 }
 
-
-// export default function ArticleCard(props) {
-//   const {article} = props
-//   return (
-  
-//     <div>
-//       <h3>{article.title}</h3>
-//     </div>
-//   )
-// }

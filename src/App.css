@@ -43,7 +43,7 @@
 .topnav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: rgb(10, 10, 10);
   overflow: hidden;
   height: 60px;
@@ -56,7 +56,7 @@
   text-align: center;
   padding: 0px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 15px;
   padding: 30px;
 }
 
