@@ -4,12 +4,14 @@ import { patchVotes } from "../api";
 export class Votes extends Component {
   state = {
     updateVotes: 0,
+    disableBtn: false
   };
 
   updateVotes = (id, increment, endpoint) => {
     this.setState((currentState) => {
       return {
         updateVotes: currentState.updateVotes + increment,
+        disableBtn: true
       };
     });
     patchVotes(id, increment, endpoint );
@@ -17,9 +19,11 @@ export class Votes extends Component {
 
   render() {
     const { id, votes, endpoint} = this.props
+    const {disableBtn} = this.state
     return (
       <section>
         <button
+         disabled={disableBtn}
           onClick={() => {
             this.updateVotes(id, 1, endpoint);
           }}
@@ -28,8 +32,9 @@ export class Votes extends Component {
         </button>
         <p> Votes: {votes + this.state.updateVotes}</p>
         <button
+          disabled={disableBtn}
           onClick={() => {
-            this.updateVotes(this.props.id, -1, this.props.endpoint)
+            this.updateVotes(id, -1, endpoint)
           }}
         >
           -
