@@ -1,3 +1,4 @@
+import { Tabs, Tab } from "react-bootstrap";
 import React, { Component } from "react";
 import { getAllArticles, getSortedArticles } from "../api";
 import ArticleCard from "./ArticleCard";
@@ -38,27 +39,27 @@ export class ArticleList extends Component {
   };
 
   render() {
-    const { articles, isLoading, error} = this.state;
+    const { articles, isLoading, error } = this.state;
     return (
       <div>
         {isLoading ? (
           <p>is Loading..</p>
         ) : error ? (
-          <DisplayErrors status={error.response.status} msg={error.response.data.msg} />
+          <DisplayErrors
+            status={error.response.status}
+            msg={error.response.data.msg}
+          />
         ) : (
           <section>
-            <button value="created_at" onClick={this.sortArticles}>
-              {" "}
-              New{" "}
-            </button>
-            <button value="comment_count" onClick={this.sortArticles}>
-              {" "}
-              Popular{" "}
-            </button>
-            <button value="votes" onClick={this.sortArticles}>
-              {" "}
-              Top{" "}
-            </button>
+            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+              <Tab value="created_at" onClick={this.sortArticles} eventKey="home" title="New">
+              </Tab>
+              <Tab value="comment_count" onClick={this.sortArticles} eventKey="profile" title="Popular">
+              </Tab>
+              <Tab value="votes" onClick={this.sortArticles} eventKey="contact" title="Top">
+              </Tab>
+            </Tabs>
+            ;
             {articles.map((article) => {
               return <ArticleCard article={article} key={article.article_id} />;
             })}{" "}

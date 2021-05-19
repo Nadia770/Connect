@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { Votes } from "./Votes";
-
+import { TrashFill } from "react-bootstrap-icons";
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +34,7 @@ export default function CommentCard(props) {
           color="textSecondary"
           gutterBottom
         >
-          Date: {(new Date(comment.created_at)).toDateString()}
+          Date: {new Date(comment.created_at).toDateString()}
         </Typography>
         <Typography variant="h6" component="h2">
           {comment.title}
@@ -52,7 +52,7 @@ export default function CommentCard(props) {
               deleteComment(comment.comment_id);
             }}
           >
-            delete
+            <TrashFill />
           </button>
         ) : (
           <Votes

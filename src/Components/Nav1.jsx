@@ -3,9 +3,8 @@ import { Link } from "@reach/router";
 import { getTopics } from "../api";
 import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
-import { House} from "react-bootstrap-icons";
-import { Person} from "react-bootstrap-icons";
-
+import { House } from "react-bootstrap-icons";
+import { Person } from "react-bootstrap-icons";
 
 export class Nav extends Component {
   state = {
@@ -27,12 +26,12 @@ export class Nav extends Component {
           <h1>Page is loading</h1>
         ) : (
           <nav className="topnav">
-            <Link to="/">
+            <Link to="/articles">
               <House color="royalblue" size={30} />
             </Link>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Dropdown Button
+              <Dropdown.Toggle size="sm" variant="outline-primary" id="dropdown-basic">
+                Topics
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
@@ -49,13 +48,11 @@ export class Nav extends Component {
               </Dropdown.Menu>
             </Dropdown>
             <h3>Your logged in as: jessjelly</h3>
-            <Link to="/users">
-            <Person color="royalblue" size={30}/>
+            <Link to="/">
+            <Person color="royalblue" size={30} />
             </Link>
-           
           </nav>
         )}{" "}
-      
       </div>
     );
   }

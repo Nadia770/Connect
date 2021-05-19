@@ -1,6 +1,6 @@
 import "./App.css";
-import Header from "./Components/Header";
-import { Nav } from "./Components/Nav1";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Nav } from "./Components/Nav1";
 import {Router} from '@reach/router'
 import {ArticleList} from './Components/ArticleList' 
 import { ArticleByTopic } from "./Components/ArticleByTopic";
@@ -8,12 +8,14 @@ import {SingleArticle} from "./Components/SingleArticle"
 import { CommentsForArticle } from "./Components/CommentsForArticle";
 import DisplayErrors from "./Components/DisplayErrors";
 
+import { Navigation } from "./Components/Navigation";
+
+
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Header />
+      <Navigation />
       <Router>
       <ArticleList path="/"/>
       <ArticleByTopic path="/:topic_id/articles"/>
