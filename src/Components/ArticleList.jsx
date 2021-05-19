@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Button} from "react-bootstrap"
 import { getAllArticles, getSortedArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 import DisplayErrors from "./DisplayErrors";
@@ -38,7 +39,7 @@ export class ArticleList extends Component {
   };
 
   render() {
-    const { articles, isLoading, error} = this.state;
+    const { articles, isLoading, error } = this.state;
     return (
       <div>
         {isLoading ? (
@@ -46,24 +47,24 @@ export class ArticleList extends Component {
         ) : error ? (
           <DisplayErrors status={error.response.status} msg={error.response.data.msg} />
         ) : (
-          <section>
-            <button value="created_at" onClick={this.sortArticles}>
+              <section>
+                <Button className="mt-2 mb-2" variant="outline-primary" size="sm" value="created_at" onClick={this.sortArticles}>
               {" "}
               New{" "}
-            </button>
-            <button value="comment_count" onClick={this.sortArticles}>
+            </Button>
+            <Button variant="outline-primary" size="sm" value="comment_count" onClick={this.sortArticles}>
               {" "}
               Popular{" "}
-            </button>
-            <button value="votes" onClick={this.sortArticles}>
+            </Button>
+            <Button variant="outline-primary" size="sm" value="votes" onClick={this.sortArticles}>
               {" "}
               Top{" "}
-            </button>
-            {articles.map((article) => {
-              return <ArticleCard article={article} key={article.article_id} />;
-            })}{" "}
-          </section>
-        )}
+            </Button>
+                {articles.map((article) => {
+                  return <ArticleCard article={article} key={article.article_id} />;
+                })}{" "}
+              </section>
+            )}
       </div>
     );
   }

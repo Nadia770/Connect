@@ -19,6 +19,13 @@
   width: 100%;
 }
 
+.singleArticleContainer{
+  max-width: 700px;
+  margin: 0 auto
+
+   
+}
+
 /* .mx-auto { 
   display:flex;
   flex-direction: row

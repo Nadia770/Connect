@@ -21,7 +21,7 @@ export class Navigation extends Component {
         {isLoading ? (
           <h1>Page is loading</h1>
         ) : (
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
           <Navbar.Brand href="/">Connect News</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

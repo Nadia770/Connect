@@ -9,7 +9,7 @@ export default function ArticleCard(props) {
 
   return (
     <div className="mb-3">
-    <Card className="mx-auto .d-inline-flex flex-row justify-content-between align-items-center col-md-8" border='dark'  bg='light' >
+    <Card className="mx-auto .d-inline-flex flex-row justify-content-between align-items-center col-md-8" border='warning'  bg='light' >
       <div className="card-container1">
     <Votes votes={article.votes} id={article.article_id} endpoint="articles" />
     </div>

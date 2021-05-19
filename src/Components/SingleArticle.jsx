@@ -9,7 +9,7 @@ export class SingleArticle extends Component {
   state = {
     article: [],
     isLoading: true,
-    error : null
+    error: null
   };
 
   componentDidMount = () => {
@@ -18,9 +18,9 @@ export class SingleArticle extends Component {
       const article = articleArray[0];
       this.setState({ article, isLoading: false });
     })
-    .catch(error=>{
-       this.setState({error, isLoading: false})
-    })
+      .catch(error => {
+        this.setState({ error, isLoading: false })
+      })
   };
 
   componentDidUpdate(previousProp) {
@@ -39,20 +39,23 @@ export class SingleArticle extends Component {
       <div>
         {isLoading ? (
           <h1>Page is loading</h1>
-        ) : error? <DisplayErrors status={error.response.status} msg={error.response.data.msg}/> : (
+        ) : error ? <DisplayErrors status={error.response.status} msg={error.response.data.msg} /> : (
           <section>
-            <h3>Date: {(new Date(article.created_at)).toDateString()}</h3>
-            <h3>{article.title}</h3>
-            <h4>{article.body}</h4>
-            <h4>Posted by: {article.author}</h4>
-            <Votes
-              votes={article.votes}
-              id={article.article_id}
-              endpoint="articles"
-            />
-            <CommentsForArticle article_id={article.article_id} />
+            <div className = "singleArticleContainer">
+              <h3>Date: {(new Date(article.created_at)).toDateString()}</h3>
+              <h3>{article.title}</h3>
+              <h4>{article.body}</h4>
+              <h4>Posted by: {article.author}</h4>
+              </div>
+              <Votes
+                votes={article.votes}
+                id={article.article_id}
+                endpoint="articles"
+              />
+              <CommentsForArticle article_id={article.article_id} />
           </section>
         )}
+
       </div>
     );
   }
