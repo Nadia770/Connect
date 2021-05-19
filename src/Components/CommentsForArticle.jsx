@@ -39,11 +39,10 @@ export class CommentsForArticle extends Component {
  deleteComment= (comment_id)=>{
   deleteCommentById(comment_id).then(()=>{
     this.setState((currentState)=>{
-      const updatedComments= [...currentState.comments]
-      updatedComments.filter((comment)=>{
+      const updatedComments =currentState.comments.filter((comment)=>{
         return comment.comment_id !== comment_id  
        })
-       return {comments:updatedComments}
+       return {comments: updatedComments}
     })
   })
  }
