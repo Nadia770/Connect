@@ -1,51 +1,14 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import { Card } from "react-bootstrap";
 import { Votes } from "./Votes";
 import { TrashFill } from "react-bootstrap-icons";
 
-const useStyles = makeStyles({
-  root: {
-    // minWidth: 100,
-    // maxWidth: 400
-    "margin-left": "15%",
-    width: "70%",
-    height: "20%",
-  },
-  title: {
-    fontSize: 10,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
-
 export default function CommentCard(props) {
-  const classes = useStyles();
   const { comment, deleteComment } = props;
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          Date: {new Date(comment.created_at).toDateString()}
-        </Typography>
-        <Typography variant="h6" component="h2">
-          {comment.title}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          posted in {comment.topic} by {comment.author}
-        </Typography>
-        <Typography variant="body2" component="p">
-          {comment.body}
-        </Typography>
-
+    <div className="mb-3">
+      <Card className="mx-auto .d-inline-flex flex-row justify-content-between align-items-center col-md-8" border='warning' bg='light' >
         {comment.author === "jessjelly" ? (
           <button
             onClick={() => {
@@ -55,13 +18,26 @@ export default function CommentCard(props) {
             <TrashFill />
           </button>
         ) : (
-          <Votes
-            votes={comment.votes}
-            id={comment.comment_id}
-            endpoint="comments"
-          />
-        )}
-      </CardContent>
-    </Card>
-  );
+            <Votes
+              votes={comment.votes}
+              id={comment.comment_id}
+              endpoint="comments"
+            />
+          )}
+        <div className="card-container2">
+          <Card.Body>
+            {/* <Card.Title> {comment.title}</Card.Title> */}
+            <Card.Subtitle className="mb-2 text-muted">
+              {comment.body}
+            </Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">
+              posted in {comment.topic} by {comment.author} at {new Date(comment.created_at).toDateString()}
+            </Card.Subtitle>
+          </Card.Body>
+        </div>
+      </Card>
+    </div>
+  )
 }
+
+

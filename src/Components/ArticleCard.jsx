@@ -23,7 +23,7 @@ export default function ArticleCard(props) {
           posted in {article.topic} by {article.author}
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
-        {(article.body).substring(0,250)}...
+        {(article.body).substring(0,200)}...Read More
         </Card.Subtitle>
         </Card.Body>
         </div>
