@@ -5,6 +5,7 @@ import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { House } from "react-bootstrap-icons";
 import { Person } from "react-bootstrap-icons";
+import Loader from "./Loader";
 
 export class Nav extends Component {
   state = {
@@ -23,7 +24,7 @@ export class Nav extends Component {
     return (
       <div className="topnav">
         {isLoading ? (
-          <h1>Page is loading</h1>
+          <Loader/>
         ) : (
           <nav className="topnav">
             <Link to="/articles">

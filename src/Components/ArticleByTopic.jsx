@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Button} from "react-bootstrap"
 import { getArticlesByTopicId, getSortedArticles  } from "../api";
 import ArticleCard from "./ArticleCard";
+import Loader from "./Loader";
 
 export class ArticleByTopic extends Component {
   state = {
@@ -37,7 +38,7 @@ export class ArticleByTopic extends Component {
     return (
       <div>
         {isLoading ? (
-          <p>is Loading..</p>
+          <Loader/>
         ) : (
           <section > 
             <Button className="mt-2 mb-2" variant="outline-primary" size="sm" value="created_at" onClick={this.sortArticles}>

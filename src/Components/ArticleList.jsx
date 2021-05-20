@@ -3,6 +3,7 @@ import {Button} from "react-bootstrap"
 import { getAllArticles, getSortedArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 import DisplayErrors from "./DisplayErrors";
+import Loader from "./Loader";
 
 export class ArticleList extends Component {
   state = {
@@ -43,7 +44,7 @@ export class ArticleList extends Component {
     return (
       <div>
         {isLoading ? (
-          <p>is Loading..</p>
+          <Loader/>
         ) : error ? (
           <DisplayErrors status={error.response.status} msg={error.response.data.msg} />
         ) : (

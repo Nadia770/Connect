@@ -4,6 +4,7 @@ import { CommentsForArticle } from "./CommentsForArticle";
 import DisplayErrors from "./DisplayErrors";
 import { Votes } from "./Votes";
 import { Card } from "react-bootstrap";
+import Loader from "./Loader";
 
 
 export class SingleArticle extends Component {
@@ -39,7 +40,7 @@ export class SingleArticle extends Component {
     return (
       <div>
         {isLoading ? (
-          <h1>Page is loading</h1>
+          <Loader/>
         ) : error ? <DisplayErrors status={error.response.status} msg={error.response.data.msg} /> : (
           <section>
             <div className = "singleArticleContainer">
