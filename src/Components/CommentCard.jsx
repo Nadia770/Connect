@@ -26,7 +26,6 @@ export default function CommentCard(props) {
           )}
         <div className="card-container2">
           <Card.Body>
-            {/* <Card.Title> {comment.title}</Card.Title> */}
             <Card.Subtitle className="mb-2 text-muted">
               {comment.body}
             </Card.Subtitle>
