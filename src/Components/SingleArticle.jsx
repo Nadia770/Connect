@@ -3,7 +3,6 @@ import { getArticleById } from "../api";
 import { CommentsForArticle } from "./CommentsForArticle";
 import DisplayErrors from "./DisplayErrors";
 import { Votes } from "./Votes";
-import { Card } from "react-bootstrap";
 import Loader from "./Loader";
 
 
