@@ -31,7 +31,7 @@ export default function ArticleCard(props) {
 				</div>
 
 				<div className='card-container3 mt-4'>
-					<Card.Link href={`/articles/${article.article_id}/comments`}>
+					<Card.Link href={`/articles/${article.article_id}`}>
 						{article.comment_count} comments
 					</Card.Link>
 				</div>
